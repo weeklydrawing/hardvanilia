@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HardVanilla | W3eklyMC</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background: linear-gradient(135deg, #7a0000, #b30000, #ff1a1a);
+            color: white;
+            text-align: center;
+        }
+
+        .container {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.25);
+        }
+
+        h1 {
+            font-size: 3.2rem;
+            margin-bottom: 10px;
+            text-shadow: 0 0 15px rgba(0,0,0,0.6);
+        }
+
+        h2 {
+            font-weight: normal;
+            color: #ffd6d6;
+            margin-bottom: 30px;
+        }
+
+        .description {
+            max-width: 600px;
+            font-size: 1.1rem;
+            margin-bottom: 40px;
+            line-height: 1.6;
+        }
+
+        .countdown {
+            font-size: 2.2rem;
+            font-weight: bold;
+            margin-bottom: 30px;
+            text-shadow: 0 0 10px rgba(0,0,0,0.6);
+        }
+
+        .discord-button {
+            background: linear-gradient(135deg, #ff3333, #cc0000);
+            color: white;
+            text-decoration: none;
+            padding: 15px 35px;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.4);
+        }
+
+        .discord-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.6);
+        }
+
+        footer {
+            margin-top: 40px;
+            font-size: 0.9rem;
+            color: #ffcccc;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>HardVanilla</h1>
+    <h2>New W3eklyMC Gamemode</h2>
+
+    <p class="description">
+        HardVanilla is a brutal new survival experience on W3eklyMC.
+        True vanilla gameplay — but harder. Stronger mobs, harsher rules,
+        and only the toughest players will survive.
+    </p>
+
+    <div class="countdown" id="countdown">
+        Loading countdown...
+    </div>
+
+    <a class="discord-button" href="https://discord.gg/YOURDISCORD" target="_blank">
+        Join the Discord
+    </a>
+
+    <footer>
+        Launching January 16, 2026
+    </footer>
+</div>
+
+<script>
+    const launchDate = new Date("January 16, 2026 00:00:00").getTime();
+
+    function updateCountdown() {
+        const now = new Date().getTime();
+        const distance = launchDate - now;
+
+        if (distance < 0) {
+            document.getElementById("countdown").innerHTML = "HardVanilla is LIVE!";
+            return;
+        }
+
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        document.getElementById("countdown").innerHTML =
+            `${days}d ${hours}h ${minutes}m ${seconds}s`;
+    }
+
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+</script>
+
+</body>
+</html>
