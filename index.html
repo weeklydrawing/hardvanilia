@@ -3,7 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <title>HardVanilla | W3eklyMC</title>
+
+    <!-- IMPORTANT for mobile -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <style>
+        * {
+            box-sizing: border-box;
+        }
+
         body {
             margin: 0;
             font-family: Arial, Helvetica, sans-serif;
@@ -18,42 +26,45 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            padding: 20px;
+            padding: 30px 15px;
             background: rgba(0, 0, 0, 0.25);
         }
 
         h1 {
-            font-size: 3.2rem;
+            font-size: clamp(2.2rem, 6vw, 3.2rem);
             margin-bottom: 10px;
             text-shadow: 0 0 15px rgba(0,0,0,0.6);
         }
 
         h2 {
+            font-size: clamp(1.1rem, 4vw, 1.4rem);
             font-weight: normal;
             color: #ffd6d6;
-            margin-bottom: 30px;
+            margin-bottom: 25px;
         }
 
         .description {
             max-width: 600px;
-            font-size: 1.1rem;
-            margin-bottom: 40px;
+            font-size: clamp(1rem, 3.5vw, 1.1rem);
             line-height: 1.6;
+            margin-bottom: 35px;
+            padding: 0 5px;
         }
 
         .countdown {
-            font-size: 2.2rem;
+            font-size: clamp(1.6rem, 5vw, 2.2rem);
             font-weight: bold;
             margin-bottom: 30px;
             text-shadow: 0 0 10px rgba(0,0,0,0.6);
+            word-wrap: break-word;
         }
 
         .discord-button {
             background: linear-gradient(135deg, #ff3333, #cc0000);
             color: white;
             text-decoration: none;
-            padding: 15px 35px;
-            border-radius: 10px;
+            padding: 16px 36px;
+            border-radius: 12px;
             font-size: 1.1rem;
             font-weight: bold;
             transition: transform 0.2s ease, box-shadow 0.2s ease;
@@ -66,9 +77,18 @@
         }
 
         footer {
-            margin-top: 40px;
+            margin-top: 35px;
             font-size: 0.9rem;
             color: #ffcccc;
+        }
+
+        /* Extra small screens */
+        @media (max-width: 400px) {
+            .discord-button {
+                width: 100%;
+                max-width: 260px;
+                padding: 15px 0;
+            }
         }
     </style>
 </head>
